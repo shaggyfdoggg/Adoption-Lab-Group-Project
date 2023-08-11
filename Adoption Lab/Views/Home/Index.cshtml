@@ -10,22 +10,24 @@
 
 
     @{
-        foreach (AdoptList a in Model.DistinctBy(p => p.Breed).ToList())
+        List<AdoptList> distinctBreeds = Model.DistinctBy(b => b.Breed).ToList();
+        foreach (AdoptList a in distinctBreeds)
         {
-            <a href="@Url.Action("ListOfAnimals")"><p>@a.Breed</p>
-
+            <a href="@Url.Action("ListOfAnimals")">
+                <p>@a.Breed</p>
+                List<Breed></Breed>
             </a>
         }
     }
 
 
-@*<form asp-method="post" asp-action="BreedChoice">
-<p>Choose which animal type you are looking for.</p>
+    @*<form asp-method="post" asp-action="BreedChoice">
+    <p>Choose which animal type you are looking for.</p>
     <input type="text"/>
     <input type="submit" />
 
     </form>
-*@
+    *@
 
 
 

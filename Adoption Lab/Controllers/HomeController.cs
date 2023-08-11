@@ -13,10 +13,12 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    
+
     public IActionResult Index()
     {
-        return View();
+        List<AdoptList> result = _animalsDbContext.AdoptLists.ToList();
+
+        return View(result);
     }
 
     public IActionResult AdoptAnimal()
@@ -26,6 +28,8 @@ public class HomeController : Controller
     }
     public IActionResult ListOfAnimals(string breed)
     {
+        List<AdoptList> D = _animalsDbContext.AdoptLists.ToList();
+        List<AdoptList> result = D.Where(n => n.Breed ==breed).ToList();
 
         return View();
     }
