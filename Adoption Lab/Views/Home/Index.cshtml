@@ -1,8 +1,38 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<AdoptList>
+
+<h1>Welcome to the Furever Adoption Agency.</h1>
+<h2>Here are our animals</h2>
 
 <div class="text-center">
+
+
+
+
+
+    @{
+        foreach (AdoptList a in Model.DistinctBy(p => p.Breed).ToList())
+        {
+            <a href="@Url.Action("ListOfAnimals")"><p>@a.Breed</p>
+
+            </a>
+        }
+    }
+
+
+@*<form asp-method="post" asp-action="BreedChoice">
+<p>Choose which animal type you are looking for.</p>
+    <input type="text"/>
+    <input type="submit" />
+
+    </form>
+*@
+
+
+
+
+
+
+
 
 
 </div>

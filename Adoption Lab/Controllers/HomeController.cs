@@ -12,6 +12,8 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+
+    
     public IActionResult Index()
     {
         return View();
@@ -22,7 +24,7 @@ public class HomeController : Controller
 
         return View();
     }
-    public IActionResult ListOfAnimals()
+    public IActionResult ListOfAnimals(string breed)
     {
 
         return View();
