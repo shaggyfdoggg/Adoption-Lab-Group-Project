@@ -1,9 +1,9 @@
 ﻿@model List<AdoptList>
 
+<div class="text-center">
 <h1>Welcome to the Furever Adoption Agency.</h1>
 <h2>Here are our animals</h2>
 
-<div class="text-center">
 
 
 
@@ -13,14 +13,16 @@
         List<AdoptList> distinctBreeds = Model.DistinctBy(b => b.Breed).ToList();
         foreach (AdoptList a in distinctBreeds)
         {
-            <a href="@Url.Action("ListOfAnimals")">
+            <a class="nav-link text-dark p-0" asp-action="ListOfAnimals" asp-route-id="@a.Id">
+           
                 <p>@a.Breed</p>
-                List<Breed></Breed>
-            </a>
+                </a>
+            
         }
     }
 
-
+   @* <a href="@Url.Action("ListOfAnimals")">
+    </a>*@
     @*<form asp-method="post" asp-action="BreedChoice">
     <p>Choose which animal type you are looking for.</p>
     <input type="text"/>
